@@ -1,0 +1,20 @@
+name: "Text Fill"
+description: "Replace filename tokens in project files with the contents of matching files from a source directory"
+inputs:
+  source_dir:
+    description: "Directory whose file names (without extension) are search strings and whose contents are replacements"
+    required: true
+  include:
+    description: "A glob of files to include in the search"
+    default: "**"
+    required: false
+  exclude:
+    description: "A glob of files to exclude from the search"
+    default: ".git/**"
+    required: false
+outputs:
+  modifiedFiles:
+    description: "The number of files which have been modified"
+runs:
+  using: "docker"
+  image: "Dockerfile"

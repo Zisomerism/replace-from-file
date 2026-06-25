@@ -1,0 +1,21 @@
+name: Integration Test
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Self test
+        id: selftest
+        uses: ./
+        with:
+          source_dir: test/snippets
+          include: "test/**"
+          exclude: "test/snippets/**"
+
+      - name: Check outputs and modified files
+        run: |
+          test "${{ steps.selftest.outputs.modifiedFiles }}" == "1"
+          grep "Hello there" test/hello.txt
