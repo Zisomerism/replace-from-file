@@ -1,4 +1,4 @@
-name: "Text Fill"
+name: "Replace from File"
 description: "Replace filename tokens in project files with the contents of matching files from a source directory"
 inputs:
   source_dir:

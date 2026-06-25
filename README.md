@@ -1,4 +1,4 @@
-# Text Fill Action
+# Replace From File Action
 
 This GitHub Action replaces placeholder strings in your project files with the full contents of matching files from a source directory.
 
